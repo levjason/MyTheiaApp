@@ -14,7 +14,7 @@
   },
   "workspaces": [
     "packages/myWidgetExtension",
-    "packages/emptyExtension",
+    "packages/ticExtension",
     "browser-app",
     "electron-app"
   ]

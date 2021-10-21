@@ -1,5 +1,5 @@
 {
-  "name": "emptyExtension",
+  "name": "ticExtension",
   "keywords": [
     "theia-extension"
   ],
@@ -23,7 +23,7 @@
   },
   "theiaExtensions": [
     {
-      "frontend": "lib/browser/emptyExtension-frontend-module"
+      "frontend": "lib/browser/ticExtension-frontend-module"
     }
   ]
 }
