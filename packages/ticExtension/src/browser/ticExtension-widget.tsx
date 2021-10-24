@@ -36,16 +36,19 @@ export class ticExtensionWidget extends ReactWidget {
 }
 namespace Square {
     export interface ticProps {
-        value: number;
+        value: any;
+    }
+    export interface State {
+        value: any;
     }
 }
-class Square<P extends Square.ticProps = Square.ticProps> extends React.Component<P> {
+class Square<P extends Square.ticProps = Square.ticProps> extends React.Component<P, Square.State> {
     constructor(props: P) {
         super(props);
         this.state = {
-            value: null  
+            value: null,  
         };
-    }
+       }
 
     render() {
         return (
