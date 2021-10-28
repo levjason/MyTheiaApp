@@ -36,60 +36,66 @@ export class ticExtensionWidget extends ReactWidget {
 }
 namespace Square {
     export interface ticProps {
-        value: any;
+        value: any;   
+        click: any;
     }
     export interface State {
-        value: any;
+        squares: Array<any>;
     }
 }
-class Square<P extends Square.ticProps = Square.ticProps> extends React.Component<P, Square.State> {
-    constructor(props: P) {
-        super(props);
-        this.state = {
-            value: null,  
-        };
-       }
+class Square<P extends Square.ticProps = Square.ticProps> extends React.Component<P> {
+
 
     render() {
         return (
             <button
                 className="square"
-                onClick={() => this.setState({ value: 'X' })}
+                onClick={this.props.click}
             >
-                {this.state.value}
+                {this.props.value}
             </button>
         );
+
     }
 }
-class Board extends React.Component {
+class Board<P extends Square.ticProps = Square.ticProps> extends React.Component<P, Square.State> {
+    constructor(props: P) {
+        super(props);
+        this.handleClick = this.handleClick.bind(this);
+        this.state = {
+            squares: Array(9).fill(null),
+        };
+        
+    }
     renderSquare(i: number) {
-        return <Square value={i} />;
+        return <Square value={this.state.squares[i]}
+            click={()=>this.handleClick(i)}
+        />;
 
+    }
+    handleClick(i: number) {
+        const squares = this.state.squares.slice();
+        squares[i] = 'X';
+        this.setState({ squares: squares });
     }
 
     render() {
         const status = 'Next player: X';
-
         return (
             <div>
-                <div className="status">{status}</div>
-                <div className="board-row">
-                    {this.renderSquare(0)}
-                    {this.renderSquare(1)}
-                    {this.renderSquare(2)}
-                </div>
-                <div className="board-row">
-                    {this.renderSquare(3)}
-                    {this.renderSquare(4)}
-                    {this.renderSquare(5)}
-                </div>
-                <div className="board-row">
-                    {this.renderSquare(6)}
-                    {this.renderSquare(7)}
-                    {this.renderSquare(8)}
-                </div>
+              <div className="status">{status}</div>
+              <div className="board-row">
+                {this.renderSquare(0)}{this.renderSquare(1)}{this.renderSquare(2)}
+              </div>
+              <div className="board-row">
+                {this.renderSquare(3)}{this.renderSquare(4)}{this.renderSquare(5)}
+              </div>
+              <div className="board-row">
+                {this.renderSquare(6)}{this.renderSquare(7)}{this.renderSquare(8)}
+              </div>
             </div>
-        );
+          );
+      
     }
 }
 
@@ -98,7 +104,7 @@ class Game extends React.Component {
         return (
             <div className="game">
                 <div className="game-board">
-                    <Board />
+                    <Board value={undefined} click={undefined}   />
                 </div>
                 <div className="game-info">
                     <div>{/* status */}</div>
