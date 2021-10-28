@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { injectable, postConstruct, inject } from '@theia/core/shared/inversify';
+import { injectable, postConstruct } from '@theia/core/shared/inversify';
 import { ReactWidget } from '@theia/core/lib/browser/widgets/react-widget';
-import { MessageService } from '@theia/core';
+
 
 @injectable()
 export class ticExtensionWidget extends ReactWidget {
@@ -9,8 +9,7 @@ export class ticExtensionWidget extends ReactWidget {
     static readonly ID = 'ticExtensionWidget:widget';
     static readonly LABEL = 'Tic Tac Toe';
 
-    @inject(MessageService)
-    protected readonly messageService!: MessageService;
+    
 
     @postConstruct()
     protected async init(): Promise<void> {
@@ -29,9 +28,7 @@ export class ticExtensionWidget extends ReactWidget {
         </div>
     }
 
-    protected displayMessage(): void {
-        this.messageService.info('Congratulations: Tic Tac Toe Widget Successfully Created!');
-    }
+ 
 
 }
 namespace Square {
