@@ -31,7 +31,10 @@
     },
     "theiaPluginsDr": "plugins",
     "theiaPlugins": {
-      "vscode-builtin-extensions-pack": "https://open-vsx.org/api/eclipse-theia/builtin-extension-pack/1.50.1/file/eclipse-theia.builtin-extension-pack-1.50.1.vsix"
+      "vscode-builtin-extensions-pack": "https://open-vsx.org/api/eclipse-theia/builtin-extension-pack/1.50.1/file/eclipse-theia.builtin-extension-pack-1.50.1.vsix",
+      "vscode-java-dependency": "https://github.com/microsoft/vscode-java-dependency/releases/download/0.18.1/vscjava.vscode-java-dependency-0.18.1.vsix",
+      "java": "https://github.com/redhat-developer/vscode-java/releases/download/v0.82.0/redhat.java-0.82.0.vsix",
+      "vscode-java-debug": "https://github.com/microsoft/vscode-java-debug/releases/download/0.31.0/vscjava.vscode-java-debug-0.31.0.vsix"   
     },
     "theiaPluginsExcludeIds": [
       "vscode.extension-editing",
