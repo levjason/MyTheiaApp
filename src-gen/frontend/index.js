@@ -6,19 +6,22 @@ const { Container } = require('inversify');
 const { FrontendApplicationConfigProvider } = require('@theia/core/lib/browser/frontend-application-config-provider');
 
 FrontendApplicationConfigProvider.set({
-    "applicationName": "Eclipse Theia",
+    "applicationName": "Theia  Example",
     "defaultTheme": "dark",
     "defaultIconTheme": "none",
     "electron": {
         "disallowReloadKeybinding": false,
         "windowOptions": {}
+    },
+    "preferences": {
+        "files.enableTrash": false
     }
 });
 
 const { ThemeService } = require('@theia/core/lib/browser/theming');
 ThemeService.get().loadUserTheme();
 
-const nls = require('@theia/core/lib/browser/nls');
+const nls = require('@theia/core/lib/browser/nls-loader');
 
 // nls translations MUST be loaded before requiring any code that uses them
 module.exports = nls.loadTranslations().then(() => {
@@ -45,13 +48,32 @@ module.exports = nls.loadTranslations().then(() => {
     .then(function () { return import('@theia/workspace/lib/browser/workspace-frontend-module').then(load) })
     .then(function () { return import('@theia/navigator/lib/browser/navigator-frontend-module').then(load) })
     .then(function () { return import('@theia/markers/lib/browser/problem/problem-frontend-module').then(load) })
-    .then(function () { return import('@theia/messages/lib/browser/messages-frontend-module').then(load) })
     .then(function () { return import('@theia/outline-view/lib/browser/outline-view-frontend-module').then(load) })
     .then(function () { return import('@theia/monaco/lib/browser/monaco-browser-module').then(load) })
+    .then(function () { return import('@theia/callhierarchy/lib/browser/callhierarchy-frontend-module').then(load) })
+    .then(function () { return import('@theia/process/lib/common/process-common-module').then(load) })
+    .then(function () { return import('@theia/file-search/lib/browser/file-search-frontend-module').then(load) })
+    .then(function () { return import('@theia/scm/lib/browser/scm-frontend-module').then(load) })
+    .then(function () { return import('@theia/scm-extra/lib/browser/scm-extra-frontend-module').then(load) })
+    .then(function () { return import('@theia/git/lib/browser/git-frontend-module').then(load) })
+    .then(function () { return import('@theia/git/lib/browser/prompt/git-prompt-module').then(load) })
+    .then(function () { return import('@theia/messages/lib/browser/messages-frontend-module').then(load) })
+    .then(function () { return import('@theia/bulk-edit/lib/browser/bulk-edit-frontend-module').then(load) })
+    .then(function () { return import('@theia/console/lib/browser/console-frontend-module').then(load) })
+    .then(function () { return import('@theia/output/lib/browser/output-frontend-module').then(load) })
     .then(function () { return import('@theia/userstorage/lib/browser/user-storage-frontend-module').then(load) })
     .then(function () { return import('@theia/preferences/lib/browser/preference-frontend-module').then(load) })
-    .then(function () { return import('@theia/process/lib/common/process-common-module').then(load) })
     .then(function () { return import('@theia/terminal/lib/browser/terminal-frontend-module').then(load) })
+    .then(function () { return import('@theia/task/lib/browser/task-frontend-module').then(load) })
+    .then(function () { return import('@theia/debug/lib/browser/debug-frontend-module').then(load) })
+    .then(function () { return import('@theia/search-in-workspace/lib/browser/search-in-workspace-frontend-module').then(load) })
+    .then(function () { return import('@theia/timeline/lib/browser/timeline-frontend-module').then(load) })
+    .then(function () { return import('@theia/plugin-ext/lib/plugin-ext-frontend-module').then(load) })
+    .then(function () { return import('@theia/plugin-ext-vscode/lib/browser/plugin-vscode-frontend-module').then(load) })
+    .then(function () { return import('@theia/mini-browser/lib/browser/mini-browser-frontend-module').then(load) })
+    .then(function () { return import('@theia/mini-browser/lib/browser/environment/mini-browser-environment-module').then(load) })
+    .then(function () { return import('@theia/preview/lib/browser/preview-frontend-module').then(load) })
+    .then(function () { return import('@theia/vsx-registry/lib/browser/vsx-registry-frontend-module').then(load) })
     .then(function () { return import('ticExtension/lib/browser/ticExtension-frontend-module').then(load) })
         .then(start).catch(reason => {
             console.error('Failed to start the frontend application.');

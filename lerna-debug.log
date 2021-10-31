@@ -6,31 +6,28 @@
 1 silly flags   script: 'prepare',
 1 silly flags   args: []
 1 silly flags }
-2 verbose rootPath /home/jason/theiaStuff/myTheiaApp
+2 verbose rootPath /home/jason/theiaStuff/parkinglot/MyTheiaApp
 3 info version 2.11.0
-4 silly existsSync /home/jason/theiaStuff/myTheiaApp/VERSION
+4 silly existsSync /home/jason/theiaStuff/parkinglot/MyTheiaApp/VERSION
 5 silly initialize attempt
 6 silly initialize success
 7 silly execute attempt
-8 silly runScriptInDir prepare [] myWidgetExtension
-9 silly getExecOpts { cwd: '/home/jason/theiaStuff/myTheiaApp/packages/myWidgetExtension' }
-10 silly runScriptInDir prepare [] ticExtension
-11 silly getExecOpts { cwd: '/home/jason/theiaStuff/myTheiaApp/packages/ticExtension' }
-12 error prepare Errored while running script in 'ticExtension'
-13 error execute callback with error
-14 error Error: Command failed: yarn run prepare
-14 error warning package.json: No license field
-14 error warning package.json: No license field
-14 error warning package.json: No license field
-14 error error Command failed with exit code 2.
-14 error error Command failed with exit code 2.
-14 error yarn run v1.22.15
-14 error $ yarn run clean && yarn run build
-14 error $ rimraf lib
-14 error $ tsc
-14 error src/browser/ticExtension-widget.tsx(3,1): error TS6133: 'AlertMessage' is declared but its value is never read.
-14 error src/browser/ticExtension-widget.tsx(28,15): error TS6133: 'header' is declared but its value is never read.
-14 error info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-14 error info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-14 error
-14 error     at /home/jason/theiaStuff/myTheiaApp/node_modules/execa/index.js:236:11
+8 silly runScriptInDir prepare [] ticExtension
+9 silly getExecOpts {
+9 silly getExecOpts   cwd: '/home/jason/theiaStuff/parkinglot/MyTheiaApp/packages/ticExtension'
+9 silly getExecOpts }
+10 silly runScriptInDir prepare [] electron-app
+11 silly getExecOpts { cwd: '/home/jason/theiaStuff/parkinglot/MyTheiaApp/electron-app' }
+12 silly runScriptInDir prepare [] browser-app
+13 silly getExecOpts { cwd: '/home/jason/theiaStuff/parkinglot/MyTheiaApp/browser-app' }
+14 error prepare Errored while running script in 'browser-app'
+15 error execute callback with error
+16 error Error: Command failed: yarn run prepare
+16 error error Command "build" not found.
+16 error error Command failed with exit code 1.
+16 error $ yarn run clean && yarn build && yarn run download:plugins
+16 error $ theia clean
+16 error info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+16 error info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+16 error
+16 error     at /home/jason/theiaStuff/parkinglot/MyTheiaApp/node_modules/execa/index.js:236:11
