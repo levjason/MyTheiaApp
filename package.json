@@ -2,23 +2,23 @@
   
     "private": true,
     "dependencies": {
-      "@theia/callhierarchy": "next",
-      "@theia/file-search": "next",
-      "@theia/git": "next",
-      "@theia/markers": "next",
-      "@theia/messages": "next",
-      "@theia/navigator": "next",
-      "@theia/outline-view": "next",
-      "@theia/plugin-ext-vscode": "next",
-      "@theia/preferences": "next",
-      "@theia/preview": "next",
-      "@theia/search-in-workspace": "next",
-      "@theia/terminal": "next",
-      "@theia/vsx-registry": "next",
+      "@theia/callhierarchy": "~1.19.0",
+      "@theia/file-search": "~1.19.0",
+      "@theia/git": "~1.19.0",
+      "@theia/markers": "~1.19.0",
+      "@theia/messages": "~1.19.0",
+      "@theia/navigator": "~1.19.0",
+      "@theia/outline-view": "~1.19.0",
+      "@theia/plugin-ext-vscode": "~1.19.0",
+      "@theia/preferences": "~1.19.0",
+      "@theia/preview": "~1.19.0",
+      "@theia/search-in-workspace": "~1.19.0",
+      "@theia/terminal": "~1.19.0",
+      "@theia/vsx-registry": "~1.19.0",
       "ticExtension" : "0.0.0"
     },
     "devDependencies": {
-      "@theia/cli": "next",
+      "@theia/cli": "~1.19.0",
       "lerna": "^2.4.0"
     },
     "scripts": {
